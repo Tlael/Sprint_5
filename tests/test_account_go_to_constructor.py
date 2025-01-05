@@ -3,6 +3,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from data import EMAIL, PASSWORD
 from locators import BUTTON_LOGIN_IN_ACCOUNT, FIELD_EMAIL, FIELD_PASSWORD, BUTTON_LOGIN, BUTTON_ACCOUNT, \
     BUTTON_CONSTRUCTOR
+from urls import MAIN_PAGE
 
 
 class TestAccountToGoConstructor:
@@ -27,8 +28,8 @@ class TestAccountToGoConstructor:
 
         # Явное ожидание загрузки страницы
         WebDriverWait(browser, 3).until(
-            expected_conditions.url_to_be('https://stellarburgers.nomoreparties.site/')
+            expected_conditions.url_to_be(MAIN_PAGE)
         )
 
-        # Проверить что url = https://stellarburgers.nomoreparties.site/
-        assert browser.current_url == 'https://stellarburgers.nomoreparties.site/'
+        # Проверить что url = MAIN_PAGE
+        assert browser.current_url == MAIN_PAGE

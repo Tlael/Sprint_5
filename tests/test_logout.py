@@ -2,6 +2,7 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from data import EMAIL, PASSWORD
 from locators import FIELD_EMAIL, FIELD_PASSWORD, BUTTON_LOGIN, BUTTON_ACCOUNT, BUTTON_LOGOUT_IN_PROFILE
+from urls import LOGIN_URL, PROFILE_URL
 
 
 class TestLogout:
@@ -21,7 +22,7 @@ class TestLogout:
 
         # Явное ожидание загрузки страницы
         WebDriverWait(browser, 3).until(
-            expected_conditions.url_to_be('https://stellarburgers.nomoreparties.site/account/profile')
+            expected_conditions.url_to_be(PROFILE_URL)
         )
 
         # Кликнуть по кнопке Выход
@@ -29,8 +30,8 @@ class TestLogout:
 
         # Явное ожидание загрузки страницы
         WebDriverWait(browser, 3).until(
-            expected_conditions.url_to_be('https://stellarburgers.nomoreparties.site/login')
+            expected_conditions.url_to_be(LOGIN_URL)
         )
 
-        # Проверить что url = https://stellarburgers.nomoreparties.site/login
-        assert browser.current_url == 'https://stellarburgers.nomoreparties.site/login'
+        # Проверить что url = LOGIN_URL
+        assert browser.current_url == LOGIN_URL

@@ -2,6 +2,7 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from data import EMAIL, PASSWORD
 from locators import BUTTON_ACCOUNT, BUTTON_LOGIN, FIELD_PASSWORD, FIELD_EMAIL, BUTTON_LOGIN_IN_ACCOUNT
+from urls import PROFILE_URL
 
 
 class TestGoAccount:
@@ -27,8 +28,8 @@ class TestGoAccount:
 
         # Явное ожидание загрузки страницы
         WebDriverWait(browser, 3).until(
-            expected_conditions.url_to_be('https://stellarburgers.nomoreparties.site/account/profile')
+            expected_conditions.url_to_be(PROFILE_URL)
         )
 
-        # Проверить что url = https://stellarburgers.nomoreparties.site/account/profile
-        assert browser.current_url == 'https://stellarburgers.nomoreparties.site/account/profile'
+        # Проверить что url = PROFILE_URL
+        assert browser.current_url == PROFILE_URL
