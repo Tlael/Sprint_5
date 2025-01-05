@@ -1,18 +1,19 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
+from data import EMAIL, PASSWORD
 
 
 class TestGoAccount:
-    def test_registration_login(self, browser, go_to_main_page, send_email, send_pass):
+    def test_registration_login(self, browser, go_to_main_page):
         # Кликнуть по кнопке Войти в аккаунт
         browser.find_element(By.XPATH, '//section[2]/div/button').click()
 
         # Заполнить поле Email
-        browser.find_element(By.XPATH, '//label[text()="Email"]/../input').send_keys(send_email)
+        browser.find_element(By.XPATH, '//label[text()="Email"]/../input').send_keys(EMAIL)
 
         # Заполнить поле Пароль
-        browser.find_element(By.XPATH, '//label[text()="Пароль"]/../input').send_keys(send_pass)
+        browser.find_element(By.XPATH, '//label[text()="Пароль"]/../input').send_keys(PASSWORD)
 
         # Кликнуть по кнопке Войти
         browser.find_element(By.XPATH, '//form/button').click()

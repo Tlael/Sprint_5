@@ -33,30 +33,3 @@ def go_to_forgot_page(browser):
     """Фикстура для перехода на страницу восстановления пароля"""
     browser.get("https://stellarburgers.nomoreparties.site/forgot-password")
 
-
-@pytest.fixture
-def send_name(browser):
-    """Фикстура для отправки email"""
-    name = "Виктория"
-    yield name
-
-
-@pytest.fixture
-def send_email(browser):
-    """Фикстура для отправки email"""
-    email = "Vika_Pavlova_17@yandex.ru"
-    yield email
-
-
-@pytest.fixture
-def send_pass(browser):
-    """Фикстура для отправки пароля"""
-    password = "123456"
-    yield password
-
-
-@pytest.fixture
-def send_incorrect_pass(browser):
-    """Фикстура для отправки некорректного пароля"""
-    password = "1234"
-    yield password

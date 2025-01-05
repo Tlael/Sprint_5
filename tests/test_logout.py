@@ -1,16 +1,17 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
+from data import EMAIL, PASSWORD
 
 
 class TestLogout:
 
-    def test_logout(self, browser, go_to_login_page, send_email, send_pass):
+    def test_logout(self, browser, go_to_login_page):
         # Заполнить поле Email
-        browser.find_element(By.XPATH, '//label[text()="Email"]/../input').send_keys(send_email)
+        browser.find_element(By.XPATH, '//label[text()="Email"]/../input').send_keys(EMAIL)
 
         # Заполнить поле Пароль
-        browser.find_element(By.XPATH, '//label[text()="Пароль"]/../input').send_keys(send_pass)
+        browser.find_element(By.XPATH, '//label[text()="Пароль"]/../input').send_keys(PASSWORD)
 
         # Кликнуть по кнопке Войти
         browser.find_element(By.XPATH, '//form/button').click()

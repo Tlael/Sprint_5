@@ -1,19 +1,20 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
+from data import NAME, EMAIL, PASSWORD, INCORRECT_PASSWORD
 
 
 class TestRegistration:
 
-    def test_registration_correct_pass(self, browser, go_to_registration_page, send_name, send_email, send_pass):
+    def test_registration_correct_pass(self, browser, go_to_registration_page):
         # Заполнить поле Имя
-        browser.find_element(By.XPATH, '//label[text()="Имя"]/../input').send_keys(send_name)
+        browser.find_element(By.XPATH, '//label[text()="Имя"]/../input').send_keys(NAME)
 
         # Заполнить поле Email
-        browser.find_element(By.XPATH, '//label[text()="Email"]/../input').send_keys(send_email)
+        browser.find_element(By.XPATH, '//label[text()="Email"]/../input').send_keys(EMAIL)
 
         # Заполнить поле Пароль
-        browser.find_element(By.XPATH, '//label[text()="Пароль"]/../input').send_keys(send_pass)
+        browser.find_element(By.XPATH, '//label[text()="Пароль"]/../input').send_keys(PASSWORD)
 
         # Кликнуть по кнопке Зарегистрироваться
         browser.find_element(By.XPATH, '//button[text()="Зарегистрироваться"]').click()
@@ -26,16 +27,15 @@ class TestRegistration:
         assert browser.find_element(By.XPATH, '//a[text()="Войти"]')
 
     # incorrect
-    def test_registration_wrong_pass(self, browser, go_to_registration_page, send_name, send_email,
-                                     send_incorrect_pass):
+    def test_registration_wrong_pass(self, browser, go_to_registration_page):
         # Заполнить поле Имя
-        browser.find_element(By.XPATH, '//label[text()="Имя"]/../input').send_keys(send_name)
+        browser.find_element(By.XPATH, '//label[text()="Имя"]/../input').send_keys(NAME)
 
         # Заполнить поле Email
-        browser.find_element(By.XPATH, '//label[text()="Email"]/../input').send_keys(send_email)
+        browser.find_element(By.XPATH, '//label[text()="Email"]/../input').send_keys(EMAIL)
 
         # Заполнить поле Пароль
-        browser.find_element(By.XPATH, '//label[text()="Пароль"]/../input').send_keys(send_incorrect_pass)
+        browser.find_element(By.XPATH, '//label[text()="Пароль"]/../input').send_keys(INCORRECT_PASSWORD)
 
         # Кликнуть по кнопке Зарегистрироваться
         browser.find_element(By.XPATH, '//button[text()="Зарегистрироваться"]').click()
