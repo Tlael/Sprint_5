@@ -1,37 +1,29 @@
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from data import EMAIL, PASSWORD
+from locators import BUTTON_LOGIN_IN_ACCOUNT, FIELD_EMAIL, FIELD_PASSWORD, BUTTON_LOGIN, BUTTON_ACCOUNT, \
+    BUTTON_CONSTRUCTOR
 
 
 class TestAccountToGoConstructor:
     def test_to_go_constructor(self, browser, go_to_main_page):
         # Кликнуть по кнопке Войти в аккаунт
-        browser.find_element(By.XPATH, '//section[2]/div/button').click()
+        browser.find_element(*BUTTON_LOGIN_IN_ACCOUNT).click()
 
         # Заполнить поле Email
-        browser.find_element(By.XPATH, '//label[text()="Email"]/../input').send_keys(EMAIL)
+        browser.find_element(*FIELD_EMAIL).send_keys(EMAIL)
 
         # Заполнить поле Пароль
-        browser.find_element(By.XPATH, '//label[text()="Пароль"]/../input').send_keys(PASSWORD)
+        browser.find_element(*FIELD_PASSWORD).send_keys(PASSWORD)
 
         # Кликнуть по кнопке Войти
-        browser.find_element(By.XPATH, '//form/button').click()
-
-        # Явное ожидание загрузки страницы
-        WebDriverWait(browser, 3).until(
-            expected_conditions.visibility_of_element_located((By.XPATH, '//section[2]/div/button')))
+        browser.find_element(*BUTTON_LOGIN).click()
 
         # Кликнуть по кнопке Личный кабинет
-        browser.find_element(By.XPATH, '//header/nav/a').click()
-
-        # Явное ожидание загрузки страницы
-        WebDriverWait(browser, 3).until(
-            expected_conditions.url_to_be('https://stellarburgers.nomoreparties.site/account/profile')
-        )
+        browser.find_element(*BUTTON_ACCOUNT).click()
 
         # Кликнуть по кнопке Конструктор
-        browser.find_element(By.XPATH, '//li/a').click()
+        browser.find_element(*BUTTON_CONSTRUCTOR).click()
 
         # Явное ожидание загрузки страницы
         WebDriverWait(browser, 3).until(

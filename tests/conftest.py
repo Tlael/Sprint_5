@@ -2,7 +2,7 @@ import pytest
 from selenium import webdriver
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture()
 def browser():
     """Фикстура для запуска и закрытия браузера"""
     driver = webdriver.Chrome()

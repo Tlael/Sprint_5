@@ -1,27 +1,23 @@
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from data import EMAIL, PASSWORD
+from locators import FIELD_EMAIL, FIELD_PASSWORD, BUTTON_LOGIN, BUTTON_ACCOUNT, BUTTON_LOGOUT_IN_PROFILE
 
 
 class TestLogout:
 
     def test_logout(self, browser, go_to_login_page):
         # Заполнить поле Email
-        browser.find_element(By.XPATH, '//label[text()="Email"]/../input').send_keys(EMAIL)
+        browser.find_element(*FIELD_EMAIL).send_keys(EMAIL)
 
         # Заполнить поле Пароль
-        browser.find_element(By.XPATH, '//label[text()="Пароль"]/../input').send_keys(PASSWORD)
+        browser.find_element(*FIELD_PASSWORD).send_keys(PASSWORD)
 
         # Кликнуть по кнопке Войти
-        browser.find_element(By.XPATH, '//form/button').click()
-
-        # Явное ожидание загрузки страницы
-        WebDriverWait(browser, 3).until(
-            expected_conditions.visibility_of_element_located((By.XPATH, '//section[2]/div/button')))
+        browser.find_element(*BUTTON_LOGIN).click()
 
         # Кликнуть по кнопке Личный кабинет
-        browser.find_element(By.XPATH, "//p[text()='Личный Кабинет']/..").click()
+        browser.find_element(*BUTTON_ACCOUNT).click()
 
         # Явное ожидание загрузки страницы
         WebDriverWait(browser, 3).until(
@@ -29,7 +25,7 @@ class TestLogout:
         )
 
         # Кликнуть по кнопке Выход
-        browser.find_element(By.XPATH, "//button[text()='Выход']").click()
+        browser.find_element(*BUTTON_LOGOUT_IN_PROFILE).click()
 
         # Явное ожидание загрузки страницы
         WebDriverWait(browser, 3).until(
