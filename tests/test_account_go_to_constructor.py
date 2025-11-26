@@ -1,7 +1,7 @@
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from data import EMAIL, PASSWORD
-from locators import BUTTON_LOGIN_IN_ACCOUNT, FIELD_EMAIL, FIELD_PASSWORD, BUTTON_LOGIN, BUTTON_ACCOUNT, \
+from locators_1 import BUTTON_LOGIN_IN_ACCOUNT, FIELD_EMAIL, FIELD_PASSWORD, BUTTON_LOGIN, BUTTON_ACCOUNT, \
     BUTTON_CONSTRUCTOR
 from urls import MAIN_PAGE
 

@@ -1,7 +1,7 @@
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
-from locators import SECTION_SAUCES, SECTION_BUNS, SECTION_FILLINGS
+from locators_1 import SECTION_SAUCES, SECTION_BUNS, SECTION_FILLINGS
 
 
 class TestConstructorBurgers:
